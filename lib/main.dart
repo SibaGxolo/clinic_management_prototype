@@ -2,7 +2,7 @@ import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp()); //FROM ASIVE
+  runApp(const MyApp()); //FROM ASIVEM
 }
 
 class MyApp extends StatelessWidget {
