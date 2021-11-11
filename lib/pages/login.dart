@@ -55,7 +55,7 @@ class Login extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Register()));
+                                    builder: (context) => Register()));
                           }),
                     ],
                   ),
