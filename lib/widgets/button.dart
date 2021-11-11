@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String buttontext;
-
   final GestureTapCallback onPressed;
+
   const Button({
     Key? key,
     required this.buttontext,
