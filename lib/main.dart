@@ -2,14 +2,14 @@ import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());  //FROM ASIVE
+  runApp(const MyApp()); //FROM ASIVE
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //karabo
     return const MaterialApp(
       home: LoginPage(),
     );
