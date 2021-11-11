@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
+import 'package:clinic_management_prototype/pages/distributer_register.dart';
+import 'package:clinic_management_prototype/pages/driver_register.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:clinic_management_prototype/pages/nurse_register.dart';
 import 'package:clinic_management_prototype/pages/patient_register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 
@@ -39,13 +42,26 @@ class Register extends StatelessWidget {
               },
               textbutton: 'Patient'),
           SizedBox(height: 5),
-          UserChoice(onPressed: () {}, textbutton: 'Nurse'),
+          UserChoice(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Nurse()));
+              },
+              textbutton: 'Nurse'),
           SizedBox(height: 5),
-          UserChoice(onPressed: () {}, textbutton: 'Driver'),
+          UserChoice(
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Driver()));
+              },
+              textbutton: 'Driver'),
           SizedBox(height: 5),
-          UserChoice(onPressed: () {}, textbutton: 'Distributor'),
-          SizedBox(height: 5),
-          UserChoice(onPressed: () {}, textbutton: 'Hall'),
+          UserChoice(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Distributer()));
+              },
+              textbutton: 'Distributor'),
           SizedBox(height: 50),
           Button(
               buttontext: 'Cancel',
