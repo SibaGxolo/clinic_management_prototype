@@ -12,9 +12,20 @@ class Landing extends StatelessWidget {
       appBar: AppBar(
         title: const Center(
           child: Text('Category List'),
+          
         ),
         
       ),
+       body: SafeArea(
+        child: IconButton(
+          onPressed: (){},
+          icon: const Icon(Icons.medical_services_rounded
+          
+        ),
+        iconSize: 200.0,
+        tooltip: "Medical Assistance",//when you press and hold the icon, it displays text
+       ),
+       ),
       
     );
   }
