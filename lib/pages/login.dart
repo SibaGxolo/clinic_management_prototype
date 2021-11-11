@@ -15,6 +15,7 @@ class Login extends StatelessWidget {
         title: const Center(
           child: Text('Login'),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

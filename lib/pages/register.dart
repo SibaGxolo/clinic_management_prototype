@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
-import 'package:clinic_management_prototype/pages/patient.dart';
+import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:clinic_management_prototype/pages/patient_register.dart';
+import 'package:clinic_management_prototype/widgets/button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +16,8 @@ class Register extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         //kkm code
-        title: Text('Registeration'),
+        title: Center(child: Text('Registeration')),
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Column(children: [
@@ -43,6 +46,13 @@ class Register extends StatelessWidget {
           UserChoice(onPressed: () {}, textbutton: 'Distributor'),
           SizedBox(height: 5),
           UserChoice(onPressed: () {}, textbutton: 'Hall'),
+          SizedBox(height: 50),
+          Button(
+              buttontext: 'Cancel',
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Login()));
+              }),
         ]),
       ),
     );
