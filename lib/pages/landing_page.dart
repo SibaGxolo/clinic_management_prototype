@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class Landing extends StatelessWidget {
-  const Landing ({Key? key}) : super(key: key);
+  const Landing({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,21 +12,17 @@ class Landing extends StatelessWidget {
       appBar: AppBar(
         title: const Center(
           child: Text('Category List'),
-          
         ),
-        
       ),
-       body: SafeArea(
+      body: SafeArea(
         child: IconButton(
-          onPressed: (){},
-          icon: const Icon(Icons.medical_services_rounded
-          
+          onPressed: () {},
+          icon: const Icon(Icons.medical_services_rounded),
+          iconSize: 200.0,
+          tooltip:
+              "Medical Assistance", //when you press and hold the icon, it displays text
         ),
-        iconSize: 200.0,
-        tooltip: "Medical Assistance",//when you press and hold the icon, it displays text
-       ),
-       ),
-      
+      ),
     );
   }
 }

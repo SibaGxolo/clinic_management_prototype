@@ -1,4 +1,6 @@
 import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:clinic_management_prototype/pages/proxy_register.dart';
+import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +74,42 @@ class Patient extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => const Login()));
                       }),
-                  Button(buttontext: 'Processed', onPressed: () {}),
+                  Button(
+                      buttontext: 'Processed',
+                      onPressed: () {
+                        showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                title: const Center(
+                                    child: Text(
+                                  'Would you like to register a proxy?',
+                                  textAlign: TextAlign.center,
+                                )),
+                                actions: [
+                                  ButtonBar(
+                                      alignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        UserChoice(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const Proxy()));
+                                            },
+                                            textbutton: 'Yes'),
+                                        UserChoice(
+                                            onPressed: () {}, textbutton: 'No'),
+                                      ])
+                                ],
+                              );
+                            });
+                      }),
                 ],
               ),
               const SizedBox(
