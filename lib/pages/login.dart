@@ -3,8 +3,7 @@ import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'landing_page.dart';
+import 'home_page.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -57,7 +56,7 @@ class Login extends StatelessWidget {
                                 context,
                                 //Login button redirects the app to the landing page
                                 MaterialPageRoute(
-                                    builder: (context) => const Landing()));
+                                    builder: (context) => const Home()));
                           }),
                       const SizedBox(height: 10),
                       Button(
@@ -78,7 +77,7 @@ class Login extends StatelessWidget {
                 child: const Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    "Forgot your passsword",
+                    "Forgot your password",
                     style: TextStyle(fontSize: 20.0),
                   ),
                 ),
