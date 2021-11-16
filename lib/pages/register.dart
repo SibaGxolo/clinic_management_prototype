@@ -6,7 +6,6 @@ import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/nurse_register.dart';
 import 'package:clinic_management_prototype/pages/patient_register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +29,7 @@ class Register extends StatelessWidget {
               style: GoogleFonts.lato(
                 color: Colors.blue,
                 fontWeight: FontWeight.w700,
-                fontSize: 25,
+                fontSize: 20,
               )),
           SizedBox(
             height: 20,

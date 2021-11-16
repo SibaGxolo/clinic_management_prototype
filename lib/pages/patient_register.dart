@@ -72,7 +72,7 @@ class Patient extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Login()));
+                                builder: (context) => const Login())); //testing home page
                       }),
                   Button(
                       buttontext: 'Processed',
