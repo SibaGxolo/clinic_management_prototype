@@ -1,4 +1,5 @@
 import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/pages/proxy_register.dart';
 import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
@@ -104,7 +105,14 @@ class Patient extends StatelessWidget {
                                             },
                                             textbutton: 'Yes'),
                                         UserChoice(
-                                            onPressed: () {}, textbutton: 'No'),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const Password()));
+                                            },
+                                            textbutton: 'No'),
                                       ])
                                 ],
                               );

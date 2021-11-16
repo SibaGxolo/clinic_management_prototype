@@ -1,4 +1,5 @@
 import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,14 @@ class Nurse extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => const Login()));
                       }),
-                  Button(buttontext: 'Processed', onPressed: () {}),
+                  Button(
+                      buttontext: 'Processed',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Password()));
+                      }),
                 ],
               ),
               const SizedBox(
