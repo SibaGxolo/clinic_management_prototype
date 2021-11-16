@@ -56,7 +56,7 @@ class Password extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => const Patient()));
                       }),
-                  Button(buttontext: 'Processed', onPressed: () {}),
+                  Button(buttontext: 'Proceed', onPressed: () {}),
                 ],
               ),
               const SizedBox(

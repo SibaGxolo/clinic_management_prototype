@@ -76,7 +76,7 @@ class Patient extends StatelessWidget {
                                 builder: (context) => const Login())); //testing home page
                       }),
                   Button(
-                      buttontext: 'Processed',
+                      buttontext: 'Proceed',
                       onPressed: () {
                         showDialog(
                             barrierDismissible: false,

@@ -17,7 +17,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final items = ['Patient', 'Nurse', 'Driver', 'Distributer'];
+  final items = ['Patient', 'Nurse', 'Driver', 'Distributor'];
   String? value;
   void valuechanged(_value) {
     setState(() {
@@ -32,7 +32,7 @@ class _RegisterState extends State<Register> {
     } else if (_value == 'Driver') {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Driver()));
-    } else if (_value == 'Distributer') {
+    } else if (_value == 'Distributor') {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Distributer()));
     }
@@ -43,7 +43,7 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Center(child: Text('Registeration')),
+        title: Center(child: Text('Registration')),
         automaticallyImplyLeading: false,
       ),
       body: SafeArea(
@@ -54,7 +54,7 @@ class _RegisterState extends State<Register> {
                 height: 20,
               ),
               Text(
-                'Select below what you want to regiter as:',
+                'Select below what you want to register as:',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.lato(
                   color: Colors.blue,

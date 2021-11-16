@@ -1,8 +1,11 @@
+import 'package:clinic_management_prototype/pages/distribution_hall.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/password.dart';
+import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
+
 
 class Nurse extends StatelessWidget {
   const Nurse({Key? key}) : super(key: key);
@@ -24,6 +27,7 @@ class Nurse extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
+          
               const InputField(
                   labelText: 'Name',
                   hintText: 'Enter your name',
@@ -69,12 +73,49 @@ class Nurse extends StatelessWidget {
                                 builder: (context) => const Login()));
                       }),
                   Button(
-                      buttontext: 'Processed',
+                      buttontext: 'Proceed',
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Password()));
+                        showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                title: const Center(
+                                    child: Text(
+                                  'In the case of medical delivery, please register the distribution hall',
+                                  textAlign: TextAlign.center,
+                                )),
+                                actions: [
+                                  ButtonBar(
+                                      alignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        UserChoice(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const DistributionHall()));
+                                            },
+                                            textbutton: 'Register Hall'),
+                                        UserChoice(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const Password()));
+                                            },
+                                            textbutton: 'Continue Registration',),
+                                            
+                                            
+                                      ])
+                                ],
+                              );
+                            });
                       }),
                 ],
               ),
