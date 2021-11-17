@@ -1,7 +1,7 @@
 import 'package:clinic_management_prototype/defaults.dart';
-//import 'package:clinic_management_prototype/pages/icon_home.dart';
-//import 'package:clinic_management_prototype/pages/icon_notifications.dart';
-//import 'package:clinic_management_prototype/pages/icon_profile.dart';
+import 'package:clinic_management_prototype/pages/icon_home.dart';
+import 'package:clinic_management_prototype/pages/icon_notifications.dart';
+import 'package:clinic_management_prototype/pages/icon_profile.dart';
 //import 'package:clinic_management_prototype/pages/medical_emergancy.dart';
 //import 'package:clinic_management_prototype/pages/medication_delivery.dart';
 import 'package:flutter/material.dart';
@@ -23,16 +23,13 @@ class Home extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
      
-
-     
-     body: Center(
+    body: Center(
         child: Column(
           children: [
             const SizedBox(
               height: 100,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-             
               //picture needs to be clickable
               Container(
                 width: 180,
@@ -80,7 +77,6 @@ class Home extends StatelessWidget {
                       width: 100,
                       height: 75,
                     ),
-                        
                     Text(
                       'Sick /\n Medical Emergancy',
                       textAlign: TextAlign.center,
@@ -89,14 +85,10 @@ class Home extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         fontSize: 15,
                       ),
-                      
                     ),
-                    
                   ],
-                  
                 ),
               ),
-              
             ]),
             // fit: BoxFit.cover),
             const SizedBox(
@@ -176,57 +168,57 @@ class Home extends StatelessWidget {
 
 
 //Option 2 
-// class MyBottomNavigationBar extends StatefulWidget {
-//   const MyBottomNavigationBar({ Key? key }) : super(key: key);//note
+class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({ Key? key }) : super(key: key);//note
 
-//   @override
-//   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
-// }
+  @override
+  _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
+}
 
-// class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-//   int _indexClicked=0; //Index is clicked at position 0
-//   final List<Widget> _children=[
-//     IconHome(),
-//     IconNotifications(),
-//     IconProfile()
-//   ];
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  int _indexClicked=0; //Index is clicked at position 0
+  final List<Widget> _children=[
+    IconHome(),
+    IconNotifications(),
+    IconProfile()
+  ];
 
-//   @override
-//   Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
 
-//     return new Scaffold(
-//       body: _children[_indexClicked],
-//       bottomNavigationBar: BottomNavigationBar(  
+    return new Scaffold(
+      body: _children[_indexClicked],
+      bottomNavigationBar: BottomNavigationBar(  
 
-//         onTap: (value)
-//         {
-//          setState(()
-//          {
-//            _indexClicked=value;
-//          });
-//         },
+        onTap: (value)
+        {
+         setState(()
+         {
+           _indexClicked=value;
+         });
+        },
 
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: new Icon(
-//               Icons.home),
-//               label: ('Home'), 
-//           ),
-//           BottomNavigationBarItem(icon: 
-//           new Icon(
-//               Icons.notifications),
-//               label: ('Notifications'), 
-//           ),
-//           BottomNavigationBarItem(icon: 
-//           new Icon(
-//               Icons.person),
-//               label: ('Profile'), 
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(
+              Icons.home),
+              label: ('Home'), 
+          ),
+          BottomNavigationBarItem(icon: 
+          new Icon(
+              Icons.notifications),
+              label: ('Notifications'), 
+          ),
+          BottomNavigationBarItem(icon: 
+          new Icon(
+              Icons.person),
+              label: ('Profile'), 
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 //User choice button methods with variables
 class UserChoice extends StatelessWidget {

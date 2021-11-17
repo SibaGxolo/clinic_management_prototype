@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MedicalEmergancy extends StatefulWidget {
-  const MedicalEmergancy({ Key? key }) : super(key: key);
+  const MedicalEmergancy({Key? key}) : super(key: key);
 
   @override
   _MedicalEmergancyState createState() => _MedicalEmergancyState();
@@ -12,7 +12,7 @@ class _MedicalEmergancyState extends State<MedicalEmergancy> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medical Emergancy'),
+        title: const Text('Medical Emergancy'),
       ),
     );
   }

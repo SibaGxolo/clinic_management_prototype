@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MedicationDelivery extends StatefulWidget {
-  const MedicationDelivery({ Key? key }) : super(key: key);
+  const MedicationDelivery({Key? key}) : super(key: key);
 
   @override
   _MedicationDeliveryState createState() => _MedicationDeliveryState();
@@ -12,7 +12,7 @@ class _MedicationDeliveryState extends State<MedicationDelivery> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Medication Delivery'),
+        title: const Text('Medication Delivery'),
       ),
     );
   }
