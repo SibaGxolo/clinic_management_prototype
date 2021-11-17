@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class IconNotifications extends StatefulWidget {
   const IconNotifications({Key? key}) : super(key: key);
@@ -13,6 +14,12 @@ class _IconNotificationsState extends State<IconNotifications> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Notifications')),
+      ),
+       body: Center(
+        child: SpinKitFadingCircle(
+          color: Colors.blue,
+          size: 50,     
+        ),
       ),
     );
   }
