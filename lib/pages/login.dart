@@ -49,12 +49,15 @@ class Login extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Button(buttontext: 'Login', onPressed:() {
+                      Button(
+                          buttontext: 'Login',
+                          onPressed: () {
                             Navigator.push(
                                 context,
                                 //Login button redirects the app to the landing page
                                 MaterialPageRoute(
-                                    builder: (context) => const Home()));}),
+                                    builder: (context) => const Home()));
+                          }),
                       const SizedBox(height: 10),
                       Button(
                           buttontext: 'Register',
@@ -62,7 +65,7 @@ class Login extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Register()));
+                                    builder: (context) => const Register()));
                           }),
                     ],
                   ),

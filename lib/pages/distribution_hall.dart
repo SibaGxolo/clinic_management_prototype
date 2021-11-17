@@ -1,11 +1,12 @@
+import 'package:clinic_management_prototype/pages/nurse_register.dart';
 import 'package:clinic_management_prototype/pages/password.dart';
-import 'package:clinic_management_prototype/pages/patient_register.dart';
+
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 
-class Proxy extends StatelessWidget {
-  const Proxy({Key? key}) : super(key: key);
+class DistributionHall extends StatelessWidget {
+  const DistributionHall ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class Proxy extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Center(
-          child: Text('Register a proxy'),
+          child: Text('Register Distribution Hall'),
         ),
         automaticallyImplyLeading: false,
       ),
@@ -25,35 +26,30 @@ class Proxy extends StatelessWidget {
                 height: 25,
               ),
               const InputField(
-                  labelText: 'Proxy name',
-                  hintText: 'Enter your proxy name',
+                  labelText: 'Distribution Hall Name',
+                  hintText: 'Enter the name of the distribution hall',
                   obscureText: false,
                   textinputtype: TextInputType.text),
               const InputField(
-                  labelText: 'Proxy surname',
-                  hintText: 'Enter your proxy surname',
+                  labelText: 'Distribution Hall Address',
+                  hintText: 'Enter the distribution center address',
                   obscureText: false,
                   textinputtype: TextInputType.text),
               const InputField(
-                  labelText: 'Proxy ID number',
-                  hintText: 'Enter your proxy ID number',
+                  labelText: 'Distribution center number',
+                  hintText: 'Enter the distribution center number',
                   obscureText: false,
                   textinputtype: TextInputType.phone),
               const InputField(
-                  labelText: 'patient clinic card number ',
-                  hintText: 'Enter the patients clinic card number',
+                  labelText: 'Number of employees ',
+                  hintText: 'Enter the number of employees in the distribution hall',
                   obscureText: false,
                   textinputtype: TextInputType.phone),
               const InputField(
-                  labelText: 'Medication collection day',
-                  hintText: 'Enter the patients medication collection day',
+                  labelText: 'Distribution Hall manager',
+                  hintText: 'Please provide the name of the distribution hall manager',
                   obscureText: false,
                   textinputtype: TextInputType.text),
-              const InputField(
-                  labelText: 'Proxy Cell Phone',
-                  hintText: 'Enter your proxy cell number',
-                  obscureText: false,
-                  textinputtype: TextInputType.phone),
               const SizedBox(
                 height: 25,
               ),
@@ -66,7 +62,7 @@ class Proxy extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Patient()));
+                                builder: (context) => const Nurse ()));
                       }),
                   Button(
                       buttontext: 'Proceed',
