@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IconNotifications extends StatefulWidget {
-  const IconNotifications({ Key? key }) : super(key: key);
+  const IconNotifications({Key? key}) : super(key: key);
 
   @override
   _IconNotificationsState createState() => _IconNotificationsState();
@@ -10,11 +10,9 @@ class IconNotifications extends StatefulWidget {
 class _IconNotificationsState extends State<IconNotifications> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold
-    (
-      appBar: AppBar
-      (
-        title: Center(child: Text('Notifications')),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Notifications')),
       ),
     );
   }
