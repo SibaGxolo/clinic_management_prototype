@@ -32,6 +32,8 @@ class Home extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               //picture needs to be clickable
               Container(
+
+                
                 width: 180,
                 height: 140,
                 padding: const EdgeInsets.all(10),
