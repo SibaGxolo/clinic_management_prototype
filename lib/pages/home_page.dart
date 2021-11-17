@@ -33,6 +33,7 @@ class Home extends StatelessWidget {
               //picture needs to be clickable
               Container(
 
+
                 
                 width: 180,
                 height: 140,
