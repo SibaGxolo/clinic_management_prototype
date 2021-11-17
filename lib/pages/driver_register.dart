@@ -7,7 +7,7 @@ import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 
 class Driver extends StatefulWidget {
-  const Driver({ Key? key }) : super(key: key);
+  const Driver({Key? key}) : super(key: key);
 
   @override
   _DriverState createState() => _DriverState();
@@ -16,6 +16,7 @@ class Driver extends StatefulWidget {
 class _DriverState extends State<Driver> {
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_typing_uninitialized_variables
     var _chosenImage;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -33,118 +34,125 @@ class _DriverState extends State<Driver> {
                 height: 25,
               ),
               Stack(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                    child: CircleAvatar(
+                      radius: 65,
+                      backgroundColor: Colors.blueAccent,
                       child: CircleAvatar(
                         radius: 65,
-                        backgroundColor: Colors.blueAccent,
-                        child: CircleAvatar(
-                          radius: 65,
-                          backgroundImage: _chosenImage == null 
-                          ?null : FileImage(_chosenImage),
-                        ),
-                        
+                        backgroundImage: _chosenImage == null
+                            ? null
+                            : FileImage(_chosenImage),
                       ),
                     ),
-                    Positioned(
-                      top: 120,
-                      left: 110,
-                      child: RawMaterialButton(
+                  ),
+                  Positioned(
+                    top: 120,
+                    left: 110,
+                    child: RawMaterialButton(
                         elevation: 10,
                         fillColor: Colors.blueAccent,
                         child: Icon(Icons.add_a_photo),
                         padding: EdgeInsets.all(15.0),
                         shape: CircleBorder(),
                         onPressed: () {
-                          showDialog(context: context,
-                          builder: (BuildContext context){
-                            return AlertDialog(title: Text('Choose option to upload ID photo',
-                            style: TextStyle(fontWeight: FontWeight.w500,
-                            color: Colors.blueAccent,
-                            ),
-                            ),
-                            content: SingleChildScrollView(
-                              child: ListBody(
-                              children: [
-                                InkWell(
-                                onTap: () {},
-                                splashColor: Colors.purpleAccent,
-                                child: Row(
-                                  children: [
-                                 Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Icon(Icons.camera,
-                                   color: Colors.purpleAccent,
-                                   ),
-                                 ), 
-                                 Text('Camera', style: TextStyle(
-                                   fontSize: 18,
-                                   fontWeight: FontWeight.w500,
-                                 color: Colors.black,
-
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text(
+                                    'Choose option to upload ID photo',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
-                                  )
-
-                                ],
-                                ),
-                                ),
-
-                                InkWell(
-                                onTap: () {},
-                                splashColor: Colors.purpleAccent,
-                                child: Row(
-                                  children: [
-                                 Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Icon(Icons.image,
-                                   color: Colors.purpleAccent,
-                                   ),
-                                 ), 
-                                 Text('Gallery', style: TextStyle(
-                                   fontSize: 18,
-                                   fontWeight: FontWeight.w500,
-                                 color: Colors.black,
-
+                                  content: SingleChildScrollView(
+                                    child: ListBody(
+                                      children: [
+                                        InkWell(
+                                          onTap: () {},
+                                          splashColor: Colors.purpleAccent,
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Icon(
+                                                  Icons.camera,
+                                                  color: Colors.purpleAccent,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Camera',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.black,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () {},
+                                          splashColor: Colors.purpleAccent,
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Icon(
+                                                  Icons.image,
+                                                  color: Colors.purpleAccent,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Gallery',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.black,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () {},
+                                          splashColor: Colors.purpleAccent,
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Icon(
+                                                  Icons.remove_circle,
+                                                  color: Colors.purpleAccent,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Remove',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.black,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  )
-
-                                ],
-                                ),
-                                ),
-
-                                InkWell(
-                                onTap: () {},
-                                splashColor: Colors.purpleAccent,
-                                child: Row(
-                                  children: [
-                                 Padding(
-                                   padding: const EdgeInsets.all(8.0),
-                                   child: Icon(Icons.remove_circle,
-                                   color: Colors.purpleAccent,
-                                   ),
-                                 ), 
-                                 Text('Remove', style: TextStyle(
-                                   fontSize: 18,
-                                   fontWeight: FontWeight.w500,
-                                 color: Colors.black,
-
-                                  ),
-                                  )
-
-                                ],
-                                ),
-                                ),
-                              ],
-                              ),
-                            ),
-                            );
-                          });
-                        }
-                      ),
-                    )
-                  ],
-                ),
+                                );
+                              });
+                        }),
+                  )
+                ],
+              ),
               const InputField(
                   labelText: 'Name',
                   hintText: 'Enter your name',
@@ -178,7 +186,6 @@ class _DriverState extends State<Driver> {
               const SizedBox(
                 height: 25,
               ),
-              
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -210,4 +217,3 @@ class _DriverState extends State<Driver> {
     );
   }
 }
-
