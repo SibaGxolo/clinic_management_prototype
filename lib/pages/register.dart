@@ -34,7 +34,7 @@ class _RegisterState extends State<Register> {
           context, MaterialPageRoute(builder: (context) => Driver()));
     } else if (_value == 'Distributor') {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Distributer()));
+          context, MaterialPageRoute(builder: (context) => Distributor()));
     }
   }
 
