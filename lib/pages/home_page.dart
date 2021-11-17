@@ -17,62 +17,111 @@ class Home extends StatelessWidget {
             'Home',
           ),
         ),
+        automaticallyImplyLeading: false,
       ),
-      body: ListView(
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          Image.asset(
-            'assets/checkup.jpg',
-            width: 200,
-            height: 150,
-          ),
-          Text('Check up / Follow Up',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.lato(
-                color: Colors.blue,
-                fontWeight: FontWeight.w700,
-                fontSize: 15,
-              )),
-          //fit: BoxFit.cover),
-          const SizedBox(
-            height: 50,
-          ),
-          Image.asset(
-            'assets/medicalemergancy.jpg',
-            width: 200,
-            height: 150,
-          ),
-          Text('Sick / Medical Emergancy',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.lato(
-                color: Colors.blue,
-                fontWeight: FontWeight.w700,
-                fontSize: 15,
-              )),
-          // fit: BoxFit.cover),
-          const SizedBox(
-            height: 40,
-          ),
-          Image.asset('assets/medication.jpg', width: 200, height: 150),
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 100,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Container(
+                width: 180,
+                height: 140,
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 2,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/checkup.jpg',
+                      width: 100,
+                      height: 75,
+                    ),
+                    Text('Check up/Follow Up',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                        )),
+                  ],
+                ),
+              ),
+              //fit: BoxFit.cover),
 
-          const SizedBox(
-            height: 5,
-          ),
-
-          Text('Medication Delivery',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.lato(
-                color: Colors.blue,
-                fontWeight: FontWeight.w700,
-                fontSize: 15,
-              )),
-          // fit: BoxFit.cover),
-          const SizedBox(
-            height: 50,
-          ),
-        ],
+              Container(
+                width: 180,
+                height: 140,
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 2,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/medicalemergancy.jpg',
+                      width: 100,
+                      height: 75,
+                    ),
+                    Text(
+                      'Sick /\n Medical Emergancy',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ]),
+            // fit: BoxFit.cover),
+            const SizedBox(
+              height: 50,
+            ),
+            Container(
+              width: 180,
+              height: 140,
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2,
+                ),
+              ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/medication.jpg',
+                    width: 100,
+                    height: 75,
+                  ),
+                  Text('Medication Delivery',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      )),
+                ],
+              ),
+            ),
+            // fit: BoxFit.cover),
+            const SizedBox(
+              height: 50,
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
