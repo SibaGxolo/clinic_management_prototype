@@ -1,4 +1,6 @@
-import 'package:clinic_management_prototype/pages/patient_register.dart';
+import 'package:clinic_management_prototype/pages/home_page.dart';
+import 'package:clinic_management_prototype/pages/login.dart';
+
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
@@ -54,9 +56,16 @@ class Password extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Patient()));
+                                builder: (context) => const Login()));
                       }),
-                  Button(buttontext: 'Proceed', onPressed: () {}),
+                  Button(
+                      buttontext: 'Proceed',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Home()));
+                      }),
                 ],
               ),
               const SizedBox(

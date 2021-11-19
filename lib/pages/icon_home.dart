@@ -11,14 +11,12 @@ class IconHome extends StatefulWidget {
 
 class _IconHomeState extends State<IconHome> {
   @override
-  Widget build(BuildContext context)
-   {
-    return Scaffold(
+  Widget build(BuildContext context) {
+    return const Scaffold(
       body: Center(
         child: SpinKitFadingCircle(
           color: Colors.blue,
           size: 50,
-          
         ),
       ),
     );

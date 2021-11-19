@@ -11,19 +11,20 @@ import 'package:google_fonts/google_fonts.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Center(
-          child: Text('Home',),
-          
+          child: Text(
+            'Home',
+          ),
         ),
         automaticallyImplyLeading: false,
       ),
-     
-    body: Center(
+
+      body: Center(
         child: Column(
           children: [
             const SizedBox(
@@ -129,90 +130,78 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-    
-    //Bottom Navigation Code
-    
-      bottomNavigationBar: BottomNavigationBar(  
+
+      //Bottom Navigation Code
+
+      bottomNavigationBar: BottomNavigationBar(
         // onTap: (value){
         //   setState((){
         //       indexClicked=value;
         //   }
-        //   );},  
+        //   );},
         items: [
-          
-          BottomNavigationBarItem(icon: Icon(
-
-            Defaults.bottomNavItemIcon[0],   
+          BottomNavigationBarItem(
+            icon: Icon(
+              Defaults.bottomNavItemIcon[0],
+            ),
+            label: Defaults.bottomNavItemText[0],
           ),
-          label: Defaults.bottomNavItemText[0],
+          BottomNavigationBarItem(
+            icon: Icon(
+              Defaults.bottomNavItemIcon[1],
+            ),
+            label: Defaults.bottomNavItemText[1],
           ),
-          BottomNavigationBarItem(icon: Icon(
-            Defaults.bottomNavItemIcon[1],   
-          ),
-          label: Defaults.bottomNavItemText[1],
-          ),
-          BottomNavigationBarItem(icon: Icon(
-            Defaults.bottomNavItemIcon[2],   
-          ),
-          label: Defaults.bottomNavItemText[2],
-          
+          BottomNavigationBarItem(
+            icon: Icon(
+              Defaults.bottomNavItemIcon[2],
+            ),
+            label: Defaults.bottomNavItemText[2],
           ),
         ],
-        
       ),
     );
-
   }
 }
 
-
-
-//Option 2 
+//Option 2
 class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({ Key? key }) : super(key: key);//note
+  const MyBottomNavigationBar({Key? key}) : super(key: key); //note
 
   @override
   _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
 }
 
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
-  int _indexClicked=0; //Index is clicked at position 0
-  final List<Widget> _children=[
-    IconHome(),
-    IconNotifications(),
-    IconProfile()
+  int _indexClicked = 0; //Index is clicked at position 0
+  final List<Widget> _children = [
+    const IconHome(),
+    const IconNotifications(),
+    const IconProfile()
   ];
 
   @override
   Widget build(BuildContext context) {
-
-    return new Scaffold(
+    return Scaffold(
       body: _children[_indexClicked],
-      bottomNavigationBar: BottomNavigationBar(  
-
-        onTap: (value)
-        {
-         setState(()
-         {
-           _indexClicked=value;
-         });
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          setState(() {
+            _indexClicked = value;
+          });
         },
-
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.home),
-              label: ('Home'), 
+            icon: Icon(Icons.home),
+            label: ('Home'),
           ),
-          BottomNavigationBarItem(icon: 
-          new Icon(
-              Icons.notifications),
-              label: ('Notifications'), 
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: ('Notifications'),
           ),
-          BottomNavigationBarItem(icon: 
-          new Icon(
-              Icons.person),
-              label: ('Profile'), 
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: ('Profile'),
           ),
         ],
       ),
@@ -238,9 +227,10 @@ class UserChoice extends StatelessWidget {
       child: Text(
         textbutton,
         style: GoogleFonts.lato(
-                color: Colors.blue,
-                fontWeight: FontWeight.w700,
-                fontSize: 15,),           
+          color: Colors.blue,
+          fontWeight: FontWeight.w700,
+          fontSize: 15,
+        ),
       ),
     );
   }

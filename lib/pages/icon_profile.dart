@@ -13,12 +13,12 @@ class _IconProfileState extends State<IconProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Profile')),    
+        title: const Center(child: Text('Profile')),
       ),
-      body: Center(
+      body: const Center(
         child: SpinKitFadingCircle(
           color: Colors.blue,
-          size: 50,     
+          size: 50,
         ),
       ),
     );
