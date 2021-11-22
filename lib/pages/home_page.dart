@@ -1,12 +1,9 @@
-import 'package:clinic_management_prototype/defaults.dart';
+import 'package:clinic_management_prototype/widgets/defaults.dart';
 import 'package:clinic_management_prototype/pages/icon_home.dart';
 import 'package:clinic_management_prototype/pages/icon_notifications.dart';
 import 'package:clinic_management_prototype/pages/icon_profile.dart';
-//import 'package:clinic_management_prototype/pages/medical_emergancy.dart';
-//import 'package:clinic_management_prototype/pages/medication_delivery.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'check_up.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -59,7 +56,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              //fit: BoxFit.cover),
+
               //picture needs to be clickable
               Container(
                 width: 180,
@@ -91,7 +88,7 @@ class Home extends StatelessWidget {
                 ),
               ),
             ]),
-            // fit: BoxFit.cover),
+
             const SizedBox(
               height: 75,
             ),
@@ -123,7 +120,7 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-            // fit: BoxFit.cover),
+
             const SizedBox(
               height: 50,
             ),
@@ -134,11 +131,6 @@ class Home extends StatelessWidget {
       //Bottom Navigation Code
 
       bottomNavigationBar: BottomNavigationBar(
-        // onTap: (value){
-        //   setState((){
-        //       indexClicked=value;
-        //   }
-        //   );},
         items: [
           BottomNavigationBarItem(
             icon: Icon(

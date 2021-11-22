@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/pages/proxy_register.dart';
 import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
+import 'package:clinic_management_prototype/widgets/camera.dart';
+import 'package:clinic_management_prototype/widgets/inkwell.dart';
 import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,6 @@ class Patient extends StatefulWidget {
 class _PatientState extends State<Patient> {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_typing_uninitialized_variables
     var _chosenImage;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,7 +37,8 @@ class _PatientState extends State<Patient> {
               Stack(
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 30),
                     child: CircleAvatar(
                       radius: 65,
                       backgroundColor: Colors.blueAccent,
@@ -53,101 +53,36 @@ class _PatientState extends State<Patient> {
                   Positioned(
                     top: 120,
                     left: 110,
-                    child: RawMaterialButton(
-                        elevation: 10,
-                        fillColor: Colors.blueAccent,
-                        child: Icon(Icons.add_a_photo),
-                        padding: EdgeInsets.all(15.0),
-                        shape: CircleBorder(),
+                    child: Camera(
+                        icon: Icons.add_a_photo,
                         onPressed: () {
                           showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text(
-                                    'Choose option to upload ID photo',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.blueAccent,
-                                    ),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text(
+                                  'Choose option to upload ID photo',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.blueAccent,
                                   ),
-                                  content: SingleChildScrollView(
-                                    child: ListBody(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {},
-                                          splashColor: Colors.purpleAccent,
-                                          child: Row(
-                                            children: const [
-                                              Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Icon(
-                                                  Icons.camera,
-                                                  color: Colors.purpleAccent,
-                                                ),
-                                              ),
-                                              Text(
-                                                'Camera',
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.black,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        InkWell(
-                                          onTap: () {},
-                                          splashColor: Colors.purpleAccent,
-                                          child: Row(
-                                            children: const [
-                                              Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Icon(
-                                                  Icons.image,
-                                                  color: Colors.purpleAccent,
-                                                ),
-                                              ),
-                                              Text(
-                                                'Gallery',
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.black,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        InkWell(
-                                          onTap: () {},
-                                          splashColor: Colors.purpleAccent,
-                                          child: Row(
-                                            children: const [
-                                              Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Icon(
-                                                  Icons.remove_circle,
-                                                  color: Colors.purpleAccent,
-                                                ),
-                                              ),
-                                              Text(
-                                                'Remove',
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.black,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                ),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    children: const [
+                                      InkWeLL(
+                                          icon: Icons.camera, text: 'Camera'),
+                                      InkWeLL(
+                                          icon: Icons.image, text: 'Gallery'),
+                                      InkWeLL(
+                                          icon: Icons.remove_circle,
+                                          text: 'Remove'),
+                                    ],
                                   ),
-                                );
-                              });
+                                ),
+                              );
+                            },
+                          );
                         }),
                   )
                 ],

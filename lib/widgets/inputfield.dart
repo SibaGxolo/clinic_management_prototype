@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, file_names
-
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
@@ -23,19 +21,19 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: TextField(
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.blue,
         ),
         cursorColor: Colors.blue,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             color: Colors.blue,
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 2, color: Colors.blue),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
               color: Colors.blue,
