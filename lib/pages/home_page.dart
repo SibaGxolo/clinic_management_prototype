@@ -1,3 +1,6 @@
+import 'package:clinic_management_prototype/pages/check_up.dart';
+import 'package:clinic_management_prototype/pages/medical_emergancy.dart';
+import 'package:clinic_management_prototype/pages/medication_delivery.dart';
 import 'package:clinic_management_prototype/widgets/defaults.dart';
 import 'package:clinic_management_prototype/pages/icon_home.dart';
 import 'package:clinic_management_prototype/pages/icon_notifications.dart';
@@ -29,95 +32,117 @@ class Home extends StatelessWidget {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               //picture needs to be clickable
-              Container(
-                width: 180,
-                height: 140,
-                padding: const EdgeInsets.all(10),
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/checkup.jpg',
-                      width: 100,
-                      height: 75,
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const CheckUp()));
+                },
+                child: Container(
+                  width: (MediaQuery.of(context).size.width * 42) / 100,
+                  height: (MediaQuery.of(context).size.height * 20) / 100,
+                  padding: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
                     ),
-                    Text('Check up /\n Follow Up',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.lato(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                        )),
-                  ],
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/checkup.jpg',
+                        width: (MediaQuery.of(context).size.width * 20) / 100,
+                        height: (MediaQuery.of(context).size.height * 10) / 100,
+                      ),
+                      Text('Check up /\n Follow Up',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                          )),
+                    ],
+                  ),
                 ),
               ),
 
               //picture needs to be clickable
-              Container(
-                width: 180,
-                height: 140,
-                padding: const EdgeInsets.all(10),
-                margin: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MedicalEmergancy()));
+                },
+                child: Container(
+                  width: (MediaQuery.of(context).size.width * 42) / 100,
+                  height: (MediaQuery.of(context).size.height * 20) / 100,
+                  padding: const EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 2,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/medicalemergancy.jpg',
+                        width: (MediaQuery.of(context).size.width * 20) / 100,
+                        height: (MediaQuery.of(context).size.height * 10) / 100,
+                      ),
+                      Text(
+                        'Sick /\n Medical Emergancy',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      'assets/medicalemergancy.jpg',
-                      width: 100,
-                      height: 75,
-                    ),
-                    Text(
-                      'Sick /\n Medical Emergancy',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.lato(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              )
             ]),
 
             const SizedBox(
               height: 75,
             ),
             //picture needs to be clickable
-            Container(
-              width: 180,
-              height: 140,
-              padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 2,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Image.asset(
-                    'assets/medication.jpg',
-                    width: 100,
-                    height: 75,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MedicationDelivery()));
+              },
+              child: Container(
+                width: (MediaQuery.of(context).size.width * 42) / 100,
+                height: (MediaQuery.of(context).size.height * 20) / 100,
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 2,
                   ),
-                  Text('Medication Delivery',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.lato(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15,
-                      )),
-                ],
+                ),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/medication.jpg',
+                      width: (MediaQuery.of(context).size.width * 20) / 100,
+                      height: (MediaQuery.of(context).size.height * 10) / 100,
+                    ),
+                    Text('Medication Delivery',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                        )),
+                  ],
+                ),
               ),
             ),
 
