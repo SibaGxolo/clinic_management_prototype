@@ -16,6 +16,14 @@ class Nurse extends StatefulWidget {
 }
 
 class _NurseState extends State<Nurse> {
+  final  _key = GlobalKey<FormState>();
+
+  final TextEditingController _namecontroller = TextEditingController();
+  final TextEditingController _surnamecontroller = TextEditingController();
+  final TextEditingController _idcontroller = TextEditingController();
+  final TextEditingController _personnelcontroller = TextEditingController();
+  final TextEditingController _cliniccontroller = TextEditingController();
+  final TextEditingController _cellcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var _chosenImage;
@@ -29,6 +37,8 @@ class _NurseState extends State<Nurse> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          child: Form(
+            key: _key,
           child: Column(
             children: [
               const SizedBox(
@@ -87,54 +97,137 @@ class _NurseState extends State<Nurse> {
                   )
                 ],
               ),
-              const InputField(
-                  labelText: 'Name',
-                  hintText: 'Enter your name',
-                  obscureText: false,
-                  textinputtype: TextInputType.text),
-              const InputField(
-                  labelText: 'Surname',
-                  hintText: 'Enter your surname',
-                  obscureText: false,
-                  textinputtype: TextInputType.text),
-              const InputField(
-                  labelText: 'ID number',
-                  hintText: 'Enter your ID number',
-                  obscureText: false,
-                  textinputtype: TextInputType.phone),
-              const InputField(
-                  labelText: 'Nurse personnel number ',
-                  hintText: 'Enter your nurse personel number',
-                  obscureText: false,
-                  textinputtype: TextInputType.phone),
-              const InputField(
-                  labelText: 'Clinic address',
-                  hintText: 'Enter your address',
-                  obscureText: false,
-                  textinputtype: TextInputType.text),
-              const InputField(
-                  labelText: 'Cell Phone',
-                  hintText: 'Enter your cell number',
-                  obscureText: false,
-                  textinputtype: TextInputType.phone),
-              const SizedBox(
-                height: 25,
-              ),
-              ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Button(
-                      buttontext: 'Cancel',
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Login()));
-                      }),
-                  Button(
-                      buttontext: 'Proceed',
-                      onPressed: () {
-                        showDialog(
+              TextFormField(
+                    controller: _namecontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Name',
+                      hintText: 'enter name here',
+                      ),
+                      
+                  ),
+                TextFormField(
+                    controller: _surnamecontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Surname',
+                      hintText: 'enter surname here',
+                      ),
+                      
+                  ),
+                TextFormField(
+                    controller: _idcontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.phone,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'ID Number',
+                      hintText: 'enter id number here',
+                      ),
+                      
+                  ),
+                TextFormField(
+                    controller: _personnelcontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.number,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Nurse Personnel Number',
+                      hintText: 'enter personnel number here',
+                      ),
+                      
+                  ),
+                TextFormField(
+                    controller: _cliniccontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.streetAddress,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Clinic Address',
+                      hintText: 'enter address here',
+                      ),
+                      
+                  ),
+                
+                TextFormField(
+                    controller: _cellcontroller,
+                    validator: (value) {
+                      if(value!.isEmpty){
+                        return 'field cannot be empty';
+                      }else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.phone,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Cellphone number',
+                      hintText: 'enter cellphone number here',
+                      ),
+                      
+                  ),
+                const SizedBox(
+                  height: 25,
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Button(
+                        buttontext: 'Cancel',
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const Login())); //testing home page
+                        }),
+                    Button(
+                        buttontext: 'Proceed',
+                        onPressed: () {
+                          if(_key.currentState!.validate()){
+                            return ;
+                          }else {
+                            showDialog(
                             barrierDismissible: false,
                             context: context,
                             builder: (context) {
@@ -174,6 +267,7 @@ class _NurseState extends State<Nurse> {
                                 ],
                               );
                             });
+                          }
                       }),
                 ],
               ),
@@ -182,6 +276,7 @@ class _NurseState extends State<Nurse> {
               )
             ],
           ),
+        ),
         ),
       ),
     );

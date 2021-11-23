@@ -5,12 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({ Key? key }) : super(key: key);
+
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+
+
+ final TextEditingController _usernameController = TextEditingController();
+ final TextEditingController _passwordController = TextEditingController();
+ final  _key = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Center(
@@ -20,6 +31,9 @@ class Login extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          child: Form(
+            key: _key,
+            
           child: Column(
             children: [
               const SizedBox(
@@ -34,16 +48,55 @@ class Login extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              const InputField(
-                  labelText: 'Username',
-                  hintText: 'Enter the username you signed up with',
-                  obscureText: false,
-                  textinputtype: TextInputType.text),
-              const InputField(
-                  labelText: 'Password',
-                  hintText: 'Enter your secure password',
+              // ignore: prefer_const_constructors
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:  TextFormField(
+                  controller: _usernameController,
+                  validator: (value){
+                    if(value!.isEmpty){
+                      return 'username cannot be empty';
+                    }else 
+                    {
+                      return null;
+                      
+                    }
+                    
+                  },
+                    keyboardType: TextInputType.emailAddress,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                    labelText: 'Username',
+                    hintText: 'enter username here',
+                    
+                    ) ,
+                    
+                    ),
+              ),
+                  
+                  
+              // ignore: prefer_const_constructors
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _passwordController,
+                  validator: (value) {
+                    if(value!.isEmpty){
+                      return 'Password cannot be empty';
+                    }else {
+                      return null;
+                    }
+                  },
                   obscureText: true,
-                  textinputtype: TextInputType.text),
+                  keyboardType: TextInputType.number,
+                  // ignore: prefer_const_constructors
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    hintText: 'enter password here',),
+                    
+                ),
+                  
+              ),
               ButtonBar(
                 alignment: MainAxisAlignment.end,
                 children: [
@@ -52,11 +105,18 @@ class Login extends StatelessWidget {
                       Button(
                           buttontext: 'Login',
                           onPressed: () {
-                            Navigator.push(
+                            if (_key.currentState!.validate()){
+                              
+
+                            }else{}
+                             {
+                              Navigator.push(
                                 context,
                                 //Login button redirects the app to the landing page
                                 MaterialPageRoute(
                                     builder: (context) => const Home()));
+                            }
+                            
                           }),
                       const SizedBox(height: 10),
                       Button(
@@ -85,6 +145,7 @@ class Login extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
