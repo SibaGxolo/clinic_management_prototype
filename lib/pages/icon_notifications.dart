@@ -15,10 +15,12 @@ class _IconNotificationsState extends State<IconNotifications> {
       appBar: AppBar(
         title: const Center(child: Text('Notifications')),
       ),
-      body: const Center(
-        child: SpinKitFadingCircle(
-          color: Colors.blue,
-          size: 50,
+      body: const SafeArea(
+        child: Center(
+          child: SpinKitFadingCircle(
+            color: Colors.blue,
+            size: 50,
+          ),
         ),
       ),
     );
