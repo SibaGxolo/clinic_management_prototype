@@ -3,7 +3,6 @@ import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/camera.dart';
 import 'package:clinic_management_prototype/widgets/inkwell.dart';
-import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 
 class Driver extends StatefulWidget {

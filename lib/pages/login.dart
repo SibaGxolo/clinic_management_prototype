@@ -1,6 +1,5 @@
 import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
-import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page.dart';
