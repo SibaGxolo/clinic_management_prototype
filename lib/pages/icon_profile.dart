@@ -15,10 +15,12 @@ class _IconProfileState extends State<IconProfile> {
       appBar: AppBar(
         title: const Center(child: Text('Profile')),
       ),
-      body: const Center(
-        child: SpinKitFadingCircle(
-          color: Colors.blue,
-          size: 50,
+      body: const SafeArea(
+        child: Center(
+          child: SpinKitFadingCircle(
+            color: Colors.blue,
+            size: 50,
+          ),
         ),
       ),
     );
