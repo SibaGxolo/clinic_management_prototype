@@ -8,6 +8,7 @@ class InkWeLL extends StatelessWidget {
     required this.icon,
     required this.text,
     required this.onTaped,
+    //ontaped
     Key? key,
   }) : super(key: key);
 
