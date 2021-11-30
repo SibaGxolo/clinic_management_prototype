@@ -1,8 +1,11 @@
 import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 

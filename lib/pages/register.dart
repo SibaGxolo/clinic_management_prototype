@@ -109,7 +109,7 @@ class _RegisterState extends State<Register> {
       );
 }
 
-class UserChoice extends StatelessWidget {
+class UserChoice extends StatefulWidget {
   final GestureTapCallback onPressed;
   final String textbutton;
 
@@ -118,15 +118,41 @@ class UserChoice extends StatelessWidget {
     required this.onPressed,
     required this.textbutton,
   }) : super(key: key);
+  @override
+  _UserChoiceState createState() => _UserChoiceState();
+}
 
+class _UserChoiceState extends State<UserChoice> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed,
+      onPressed: widget.onPressed,
       child: Text(
-        textbutton,
+        widget.textbutton,
         style: TextStyle(fontSize: 25),
       ),
     );
   }
 }
+
+// class UserChoice extends StatelessWidget {
+//   final GestureTapCallback onPressed;
+//   final String textbutton;
+//
+//   const UserChoice({
+//     Key? key,
+//     required this.onPressed,
+//     required this.textbutton,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return TextButton(
+//       onPressed: onPressed,
+//       child: Text(
+//         textbutton,
+//         style: TextStyle(fontSize: 25),
+//       ),
+//     );
+//   }
+// }

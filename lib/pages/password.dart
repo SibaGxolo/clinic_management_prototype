@@ -6,6 +6,7 @@ import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class Password extends StatelessWidget {
   const Password({Key? key}) : super(key: key);
 
