@@ -1,15 +1,11 @@
-import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
-import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/pages/patient_register.dart';
 import 'package:clinic_management_prototype/preferences.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
-import 'package:clinic_management_prototype/widgets/inputfield.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 
 class Proxy extends StatefulWidget {
   const Proxy({Key? key}) : super(key: key);
@@ -19,7 +15,6 @@ class Proxy extends StatefulWidget {
 }
 
 class _ProxyState extends State<Proxy> {
-
   final _key = GlobalKey<FormState>();
 
   final TextEditingController _namecontroller = TextEditingController();
@@ -59,7 +54,7 @@ class _ProxyState extends State<Proxy> {
                 height: 25,
               ),
               TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Proxy name',
                     hintText: 'Enter your proxy name',
                   ),
@@ -67,7 +62,7 @@ class _ProxyState extends State<Proxy> {
                   obscureText: false,
                   keyboardType: TextInputType.text),
               TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Proxy surname',
                     hintText: 'Enter your proxy surname',
                   ),
@@ -75,15 +70,15 @@ class _ProxyState extends State<Proxy> {
                   obscureText: false,
                   keyboardType: TextInputType.text),
               TextFormField(
-                controller: _idcontroller,
-                  decoration: InputDecoration(
+                  controller: _idcontroller,
+                  decoration: const InputDecoration(
                     labelText: 'Proxy ID number',
                     hintText: 'Enter your proxy ID number',
                   ),
                   obscureText: false,
                   keyboardType: TextInputType.phone),
               TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'patient clinic card number ',
                     hintText: 'Enter the patients clinic card number',
                   ),
@@ -91,7 +86,7 @@ class _ProxyState extends State<Proxy> {
                   obscureText: false,
                   keyboardType: TextInputType.phone),
               TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Medication collection day',
                     hintText: 'Enter the patients medication collection day',
                   ),
@@ -99,10 +94,9 @@ class _ProxyState extends State<Proxy> {
                   obscureText: false,
                   keyboardType: TextInputType.text),
               TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Proxy Cell Phone',
                     hintText: 'Enter your proxy cell number',
-
                   ),
                   controller: _cellphonecontroller,
                   obscureText: false,
@@ -130,7 +124,12 @@ class _ProxyState extends State<Proxy> {
                         //   progress!.show();
                         // });
 
-                        await FirebaseFirestore.instance.collection("users").doc(Preferences.uid).collection('proxies').doc().set({
+                        await FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(Preferences.uid)
+                            .collection('proxies')
+                            .doc()
+                            .set({
                           'id': Preferences.uid,
                           'email': _emailcontroller.text.trim(),
                           'name': _namecontroller.text.trim(),
@@ -138,7 +137,7 @@ class _ProxyState extends State<Proxy> {
                           'patientCardNumber': _cardcontroller.text.trim(),
                           'collectionDay': _collectioncontroller.text.trim(),
                           'cellphoneNumber': _cellphonecontroller.text.trim(),
-                          'userType' : 'patient',
+                          'userType': 'patient',
                         });
 
                         // if(_key.currentState!.validate()){
@@ -169,8 +168,6 @@ class _ProxyState extends State<Proxy> {
                               MaterialPageRoute(
                                   builder: (context) => const Login()));
                         });
-
-
                       }),
                 ],
               ),
@@ -184,4 +181,3 @@ class _ProxyState extends State<Proxy> {
     );
   }
 }
-

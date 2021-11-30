@@ -76,14 +76,19 @@ class _DistributorState extends State<Distributor> {
                                   ),
                                   content: SingleChildScrollView(
                                     child: Column(
-                                      children: const [
+                                      children: [
                                         InkWeLL(
-                                            icon: Icons.camera, text: 'Camera'),
+                                            icon: Icons.camera,
+                                            text: 'Camera',
+                                            onTaped: () {}),
                                         InkWeLL(
-                                            icon: Icons.image, text: 'Gallery'),
+                                            icon: Icons.image,
+                                            text: 'Gallery',
+                                            onTaped: () {}),
                                         InkWeLL(
                                             icon: Icons.remove_circle,
-                                            text: 'Remove'),
+                                            text: 'Remove',
+                                            onTaped: () {}),
                                       ],
                                     ),
                                   ),

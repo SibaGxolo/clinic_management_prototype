@@ -1,6 +1,5 @@
 import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
-import 'package:clinic_management_prototype/pages/password.dart';
 import 'package:clinic_management_prototype/pages/proxy_register.dart';
 import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
@@ -11,8 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import '../preferences.dart';
 
 // class Patient extends StatefulWidget {
 //   const Patient({Key? key}) : super(key: key);
@@ -114,16 +111,19 @@ class _PatientState extends State<Patient> {
                                     ),
                                     content: SingleChildScrollView(
                                       child: Column(
-                                        children: const [
+                                        children: [
                                           InkWeLL(
                                               icon: Icons.camera,
-                                              text: 'Camera'),
+                                              text: 'Camera',
+                                              onTaped: () {}),
                                           InkWeLL(
                                               icon: Icons.image,
-                                              text: 'Gallery'),
+                                              text: 'Gallery',
+                                              onTaped: () {}),
                                           InkWeLL(
                                               icon: Icons.remove_circle,
-                                              text: 'Remove'),
+                                              text: 'Remove',
+                                              onTaped: () {}),
                                         ],
                                       ),
                                     ),
