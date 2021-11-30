@@ -21,8 +21,8 @@ class DistributionHall extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: (MediaQuery.of(context).size.height * 2.5) / 100,
               ),
               const InputField(
                   labelText: 'Distribution Hall Name',
@@ -51,8 +51,8 @@ class DistributionHall extends StatelessWidget {
                       'Please provide the name of the distribution hall manager',
                   obscureText: false,
                   textinputtype: TextInputType.text),
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: (MediaQuery.of(context).size.height * 15) / 100,
               ),
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
@@ -75,9 +75,6 @@ class DistributionHall extends StatelessWidget {
                       }),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              )
             ],
           ),
         ),

@@ -47,8 +47,8 @@ class _LoginState extends State<Login> {
             key: _key,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: (MediaQuery.of(context).size.height * 7.5) / 100,
                 ),
                 Text(
                   'Clinic Management',
@@ -58,7 +58,9 @@ class _LoginState extends State<Login> {
                     fontSize: 35,
                   ),
                 ),
-                const SizedBox(height: 25),
+                SizedBox(
+                  height: (MediaQuery.of(context).size.height * 7.5) / 100,
+                ),
                 // ignore: prefer_const_constructors
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -82,7 +84,7 @@ class _LoginState extends State<Login> {
 
                 // ignore: prefer_const_constructors
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10),
                   child: TextFormField(
                     controller: _passwordController,
                     validator: (value) {
@@ -136,7 +138,10 @@ class _LoginState extends State<Login> {
                               //
                               // }
                             }),
-                        const SizedBox(height: 10),
+                        SizedBox(
+                          height:
+                              (MediaQuery.of(context).size.height * 2.5) / 100,
+                        ),
                         Button(
                             buttontext: 'Register',
                             onPressed: () {
@@ -149,7 +154,9 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 130),
+                SizedBox(
+                  height: (MediaQuery.of(context).size.height * 18) / 100,
+                ),
                 TextButton(
                   onPressed: () {},
                   child: const Align(

@@ -38,8 +38,8 @@ class _DriverState extends State<Driver> {
             key: _key,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: (MediaQuery.of(context).size.height * 2.5) / 100,
                 ),
                 Stack(
                   children: [
@@ -99,110 +99,128 @@ class _DriverState extends State<Driver> {
                     )
                   ],
                 ),
-                TextFormField(
-                  controller: _namecontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.text,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'Name',
-                    hintText: 'enter name here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _namecontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Name',
+                      hintText: 'enter name here',
+                    ),
                   ),
                 ),
-                TextFormField(
-                  controller: _surnamecontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.text,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'Surname',
-                    hintText: 'enter surname here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _surnamecontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Surname',
+                      hintText: 'enter surname here',
+                    ),
                   ),
                 ),
-                TextFormField(
-                  controller: _idcontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.phone,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'ID Number',
-                    hintText: 'enter id number here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _idcontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.phone,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'ID Number',
+                      hintText: 'enter id number here',
+                    ),
                   ),
                 ),
-                TextFormField(
-                  controller: _licencecontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.number,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'Licence Number',
-                    hintText: 'enter licence number here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _licencecontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.number,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Licence Number',
+                      hintText: 'enter licence number here',
+                    ),
                   ),
                 ),
-                TextFormField(
-                  controller: _employeecontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.streetAddress,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'Employee Number',
-                    hintText: 'enter employee number here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _employeecontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.streetAddress,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Employee Number',
+                      hintText: 'enter employee number here',
+                    ),
                   ),
                 ),
-                TextFormField(
-                  controller: _cellcontroller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'field cannot be empty';
-                    } else {
-                      return null;
-                    }
-                  },
-                  obscureText: false,
-                  keyboardType: TextInputType.phone,
-                  // ignore: prefer_const_constructors
-                  decoration: InputDecoration(
-                    labelText: 'Cellphone number',
-                    hintText: 'enter cellphone number here',
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: TextFormField(
+                    controller: _cellcontroller,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cannot be empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                    obscureText: false,
+                    keyboardType: TextInputType.phone,
+                    // ignore: prefer_const_constructors
+                    decoration: InputDecoration(
+                      labelText: 'Cellphone number',
+                      hintText: 'enter cellphone number here',
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: (MediaQuery.of(context).size.height * 2.5) / 100,
                 ),
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
@@ -230,9 +248,6 @@ class _DriverState extends State<Driver> {
                         }),
                   ],
                 ),
-                const SizedBox(
-                  height: 10,
-                )
               ],
             ),
           ),

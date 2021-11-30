@@ -50,59 +50,77 @@ class _ProxyState extends State<Proxy> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: (MediaQuery.of(context).size.height * 2.5) / 100,
               ),
-              TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Proxy name',
-                    hintText: 'Enter your proxy name',
-                  ),
-                  controller: _namecontroller,
-                  obscureText: false,
-                  keyboardType: TextInputType.text),
-              TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Proxy surname',
-                    hintText: 'Enter your proxy surname',
-                  ),
-                  controller: _surnamecontroller,
-                  obscureText: false,
-                  keyboardType: TextInputType.text),
-              TextFormField(
-                  controller: _idcontroller,
-                  decoration: const InputDecoration(
-                    labelText: 'Proxy ID number',
-                    hintText: 'Enter your proxy ID number',
-                  ),
-                  obscureText: false,
-                  keyboardType: TextInputType.phone),
-              TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'patient clinic card number ',
-                    hintText: 'Enter the patients clinic card number',
-                  ),
-                  controller: _cardcontroller,
-                  obscureText: false,
-                  keyboardType: TextInputType.phone),
-              TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Medication collection day',
-                    hintText: 'Enter the patients medication collection day',
-                  ),
-                  controller: _collectioncontroller,
-                  obscureText: false,
-                  keyboardType: TextInputType.text),
-              TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Proxy Cell Phone',
-                    hintText: 'Enter your proxy cell number',
-                  ),
-                  controller: _cellphonecontroller,
-                  obscureText: false,
-                  keyboardType: TextInputType.phone),
-              const SizedBox(
-                height: 25,
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Proxy name',
+                      hintText: 'Enter your proxy name',
+                    ),
+                    controller: _namecontroller,
+                    obscureText: false,
+                    keyboardType: TextInputType.text),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Proxy surname',
+                      hintText: 'Enter your proxy surname',
+                    ),
+                    controller: _surnamecontroller,
+                    obscureText: false,
+                    keyboardType: TextInputType.text),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                    controller: _idcontroller,
+                    decoration: const InputDecoration(
+                      labelText: 'Proxy ID number',
+                      hintText: 'Enter your proxy ID number',
+                    ),
+                    obscureText: false,
+                    keyboardType: TextInputType.phone),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'patient clinic card number ',
+                      hintText: 'Enter the patients clinic card number',
+                    ),
+                    controller: _cardcontroller,
+                    obscureText: false,
+                    keyboardType: TextInputType.phone),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Medication collection day',
+                      hintText: 'Enter the patients medication collection day',
+                    ),
+                    controller: _collectioncontroller,
+                    obscureText: false,
+                    keyboardType: TextInputType.text),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Proxy Cell Phone',
+                      hintText: 'Enter your proxy cell number',
+                    ),
+                    controller: _cellphonecontroller,
+                    obscureText: false,
+                    keyboardType: TextInputType.phone),
+              ),
+              SizedBox(
+                height: (MediaQuery.of(context).size.height * 2.5) / 100,
               ),
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
@@ -171,9 +189,6 @@ class _ProxyState extends State<Proxy> {
                       }),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              )
             ],
           ),
         ),
