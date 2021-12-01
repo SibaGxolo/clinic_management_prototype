@@ -172,7 +172,9 @@ class _PatientState extends State<Patient> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'field cannot be empty';
-                        } else {
+                        } 
+                        
+                        else {
                           return null;
                         }
                       },
@@ -212,7 +214,12 @@ class _PatientState extends State<Patient> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'field cannot be empty';
-                        } else {
+                        } 
+                        else if(value.isNotEmpty && value.length<13)
+                        {
+                          return 'ID Number must contain 13 digits';
+                        }
+                        else {
                           return null;
                         }
                       },
@@ -232,7 +239,12 @@ class _PatientState extends State<Patient> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'field cannot be empty';
-                        } else {
+                        }
+                        else if(value.isNotEmpty && value.length<8)
+                        {
+                          return 'Clinic card number must contain 8 digits';
+                        } 
+                        else {
                           return null;
                         }
                       },
@@ -288,11 +300,61 @@ class _PatientState extends State<Patient> {
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(
+                      controller: _cardcontroller,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'field cannot be empty';
+                        }
+                        else if(value.isNotEmpty && value.length<8)
+                        {
+                          return 'Clinic card number must contain 8 digits';
+                        } 
+                        else {
+                          return null;
+                        }
+                      },
+                      obscureText: false,
+                      keyboardType: TextInputType.number,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        labelText: 'Clinic Card Number',
+                        hintText: 'enter clinic card number here',
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextFormField(
+                      controller: _cellcontroller,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'field cannot be empty';
+                        }else if(value.isNotEmpty && value.length<10)
+                        {
+                          return 'Cellphone number must contain 10 digits';
+                        }  
+                        else {
+                          return null;
+                        }
+                      },
+                      obscureText: false,
+                      keyboardType: TextInputType.phone,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        labelText: 'Cellphone Number',
+                        hintText: 'enter clinic card number here',
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextFormField(
                       controller: _emailcontroller,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'field cannot be empty';
-                        } else {
+                        } 
+                        else {
                           return null;
                         }
                       },
@@ -305,6 +367,7 @@ class _PatientState extends State<Patient> {
                       ),
                     ),
                   ),
+
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(
@@ -312,7 +375,12 @@ class _PatientState extends State<Patient> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'field cannot be empty';
-                        } else {
+                        } 
+                        else if(value.isNotEmpty && value.length<8)
+                        {
+                          return 'Password must contain 8 digits';
+                        }
+                        else {
                           return null;
                         }
                       },
