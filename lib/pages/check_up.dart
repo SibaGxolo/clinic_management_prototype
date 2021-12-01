@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class CheckUp extends StatefulWidget {
   const CheckUp({Key? key}) : super(key: key);
@@ -9,27 +10,17 @@ class CheckUp extends StatefulWidget {
 }
 
 class _CheckUpState extends State<CheckUp> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Check Up')),
-        automaticallyImplyLeading: false,
+@override
+Widget build(BuildContext context) {
+  return MaterialApp(
+    home: Scaffold(
+      body: Container(
+        child: SfCalendar(
+          view: CalendarView.month,
+          
+        ),
       ),
-    );
-  }
+    ),
+  );
 }
-class Calendar extends StatelessWidget {
-  const Calendar({ Key? key }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:TableCalendar(
-        focusedDay: DateTime.now(),
-        firstDay: DateTime(1990),
-        lastDay: DateTime(2050),
-      ),
-    );
-  }
 }

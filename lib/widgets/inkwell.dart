@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class InkWeLL extends StatelessWidget {
   final IconData icon;
   final String text;
-  final GestureTapCallback onTaped;
+  final GestureTapCallback onTapped;
   const InkWeLL({
     required this.icon,
     required this.text,
-    required this.onTaped,
+    required this.onTapped,
     //ontaped
     Key? key,
   }) : super(key: key);
@@ -15,7 +15,7 @@ class InkWeLL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTaped,
+      onTap: onTapped,
       splashColor: Colors.purpleAccent,
       child: Row(
         children: [

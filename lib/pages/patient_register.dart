@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/proxy_register.dart';
@@ -10,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 // class Patient extends StatefulWidget {
 //   const Patient({Key? key}) : super(key: key);
@@ -42,6 +45,34 @@ class _PatientState extends State<Patient> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
 
+  dynamic _chosenImage;
+
+  //The 3 void classes below serve the purpose of allowing the three icons (camera, gallery and remove) clickable
+  //and also allows them to reach their respective paths
+
+  Future<void> _chosenImageCamera() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.camera);
+    final pickedImageFile = File(pickedImage!.path);
+    setState(() {
+      _chosenImage = pickedImageFile;
+    });
+  }
+  Future<void> _chosenImageGallery() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
+    final pickedImageFile = File(pickedImage!.path);
+    setState(() {
+      _chosenImage = pickedImageFile;
+    });
+
+  } 
+  void _remove(){
+    setState(() {
+      _chosenImage = null;
+    });
+  }
+
   late FirebaseAuth _auth;
 
   bool _isBusyDialogVisible = false;
@@ -56,7 +87,7 @@ class _PatientState extends State<Patient> {
 
   @override
   Widget build(BuildContext context) {
-    var _chosenImage;
+    
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -115,15 +146,15 @@ class _PatientState extends State<Patient> {
                                           InkWeLL(
                                               icon: Icons.camera,
                                               text: 'Camera',
-                                              onTaped: () {}),
+                                              onTapped: _chosenImageCamera),
                                           InkWeLL(
                                               icon: Icons.image,
                                               text: 'Gallery',
-                                              onTaped: () {}),
+                                              onTapped: _chosenImageGallery),
                                           InkWeLL(
                                               icon: Icons.remove_circle,
                                               text: 'Remove',
-                                              onTaped: () {}),
+                                              onTapped: _remove),
                                         ],
                                       ),
                                     ),
