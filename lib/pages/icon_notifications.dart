@@ -11,12 +11,12 @@ class IconNotifications extends StatefulWidget {
 class _IconNotificationsState extends State<IconNotifications> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Notifications')),
-      ),
-      body: const SafeArea(
-        child: Center(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Center(child: Text('Notifications')),
+        ),
+        body: const Center(
           child: SpinKitFadingCircle(
             color: Colors.blue,
             size: 50,

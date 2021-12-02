@@ -12,15 +12,15 @@ class MedicalEmergancy extends StatefulWidget {
 class _MedicalEmergancyState extends State<MedicalEmergancy> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text('Medical Emergancy'),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Center(
+            child: Text('Medical Emergancy'),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: SafeArea(
-        child: Column(
+        body: Column(
           children: [
             SizedBox(
               height: (MediaQuery.of(context).size.height * 25) / 100,

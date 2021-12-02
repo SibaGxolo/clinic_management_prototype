@@ -11,12 +11,12 @@ class IconProfile extends StatefulWidget {
 class _IconProfileState extends State<IconProfile> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Profile')),
-      ),
-      body: const SafeArea(
-        child: Center(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Center(child: Text('Profile')),
+        ),
+        body: const Center(
           child: SpinKitFadingCircle(
             color: Colors.blue,
             size: 50,

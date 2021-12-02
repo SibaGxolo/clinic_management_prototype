@@ -9,49 +9,50 @@ class OneTimePin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Center(
-          child: Text('OTP'),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Center(
+            child: Text('OTP'),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 200),
+              const InputField(
+                  labelText: 'One time pin',
+                  hintText: 'Enter the OTP sent via SMS',
+                  obscureText: false,
+                  textinputtype: TextInputType.phone),
+              const SizedBox(height: 240),
+              ButtonBar(
+                alignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Button(
+                      buttontext: 'Cancel',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()));
+                      }),
+                  Button(
+                      buttontext: 'Proceed',
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Home()));
+                      }),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 200),
-            const InputField(
-                labelText: 'One time pin',
-                hintText: 'Enter the OTP sent via SMS',
-                obscureText: false,
-                textinputtype: TextInputType.phone),
-            const SizedBox(height: 240),
-            ButtonBar(
-              alignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Button(
-                    buttontext: 'Cancel',
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Login()));
-                    }),
-                Button(
-                    buttontext: 'Proceed',
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Home()));
-                    }),
-              ],
-            ),
-          ],
-        ),
-      )),
     );
   }
 }

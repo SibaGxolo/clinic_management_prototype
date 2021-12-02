@@ -43,6 +43,7 @@ class _ProxyState extends State<Proxy> {
       _chosenImage = pickedImageFile;
     });
   }
+
   Future<void> _chosenImageGallery() async {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
@@ -50,9 +51,9 @@ class _ProxyState extends State<Proxy> {
     setState(() {
       _chosenImage = pickedImageFile;
     });
+  }
 
-  } 
-  void _remove(){
+  void _remove() {
     setState(() {
       _chosenImage = null;
     });
@@ -71,79 +72,82 @@ class _ProxyState extends State<Proxy> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Center(
-          child: Text('Register a proxy'),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Center(
+            child: Text('Register a proxy'),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(
                 height: (MediaQuery.of(context).size.height * 2.5) / 100,
               ),
-
               Stack(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 30, horizontal: 30),
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 30),
+                    child: CircleAvatar(
+                      radius: 65,
+                      backgroundColor: Colors.blueAccent,
                       child: CircleAvatar(
                         radius: 65,
-                        backgroundColor: Colors.blueAccent,
-                        child: CircleAvatar(
-                          radius: 65,
-                          backgroundImage: _chosenImage == null
-                              ? null
-                              : FileImage(_chosenImage),
-                        ),
+                        backgroundImage: _chosenImage == null
+                            ? null
+                            : FileImage(_chosenImage),
                       ),
                     ),
-                    Positioned(
-                      top: 120,
-                      left: 110,
-                      child: Camera(
-                          icon: Icons.add_a_photo,
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text(
-                                    'Choose option to upload ID photo',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.blueAccent,
-                                    ),
+                  ),
+                  Positioned(
+                    top: 120,
+                    left: 110,
+                    child: Camera(
+                        icon: Icons.add_a_photo,
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text(
+                                  'Choose option to upload ID photo',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.blueAccent,
                                   ),
-                                  content: SingleChildScrollView(
-                                    child: Column(
-                                      children:  [
-                                        InkWeLL(
-                                            icon: Icons.camera, text: 'Camera', onTapped: _chosenImageCamera,),
-                                        InkWeLL(
-                                            icon: Icons.image, text: 'Gallery',
-                                            
-                                             onTapped: _chosenImageGallery,),
-                                        InkWeLL(
-                                            icon: Icons.remove_circle,
-                                            text: 'Remove', 
-                                            onTapped: _remove,),
-                                      ],
-                                    ),
+                                ),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      InkWeLL(
+                                        icon: Icons.camera,
+                                        text: 'Camera',
+                                        onTapped: _chosenImageCamera,
+                                      ),
+                                      InkWeLL(
+                                        icon: Icons.image,
+                                        text: 'Gallery',
+                                        onTapped: _chosenImageGallery,
+                                      ),
+                                      InkWeLL(
+                                        icon: Icons.remove_circle,
+                                        text: 'Remove',
+                                        onTapped: _remove,
+                                      ),
+                                    ],
                                   ),
-                                );
-                              },
-                            );
-                          }),
-                    )
-                  ],
-                ),
-
+                                ),
+                              );
+                            },
+                          );
+                        }),
+                  )
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: TextFormField(

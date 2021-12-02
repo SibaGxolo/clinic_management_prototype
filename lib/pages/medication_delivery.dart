@@ -12,15 +12,15 @@ class MedicationDelivery extends StatefulWidget {
 class _MedicationDeliveryState extends State<MedicationDelivery> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text('Medical Delivery'),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Center(
+            child: Text('Medical Delivery'),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: SafeArea(
-        child: Column(
+        body: Column(
           children: [
             SizedBox(
               height: (MediaQuery.of(context).size.height * 25) / 100,

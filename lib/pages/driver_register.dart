@@ -37,6 +37,7 @@ class _DriverState extends State<Driver> {
       _chosenImage = pickedImageFile;
     });
   }
+
   Future<void> _chosenImageGallery() async {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
@@ -44,9 +45,9 @@ class _DriverState extends State<Driver> {
     setState(() {
       _chosenImage = pickedImageFile;
     });
+  }
 
-  } 
-  void _remove(){
+  void _remove() {
     setState(() {
       _chosenImage = null;
     });
@@ -54,16 +55,16 @@ class _DriverState extends State<Driver> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Center(
-          child: Text('Register as a driver'),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Center(
+            child: Text('Register as a driver'),
+          ),
+          automaticallyImplyLeading: false,
         ),
-        automaticallyImplyLeading: false,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Form(
             key: _key,
             child: Column(

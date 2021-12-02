@@ -40,14 +40,14 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Center(child: Text('Registration')),
-        automaticallyImplyLeading: false,
-      ),
-      body: SafeArea(
-        child: Center(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Center(child: Text('Registration')),
+          automaticallyImplyLeading: false,
+        ),
+        body: Center(
           child: Column(
             children: [
               SizedBox(

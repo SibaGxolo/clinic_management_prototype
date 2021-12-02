@@ -10,17 +10,17 @@ class CheckUp extends StatefulWidget {
 }
 
 class _CheckUpState extends State<CheckUp> {
-@override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    home: Scaffold(
-      body: Container(
-        child: SfCalendar(
-          view: CalendarView.month,
-          
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: MaterialApp(
+      home: Scaffold(
+        body: Container(
+          child: SfCalendar(
+            view: CalendarView.month,
+          ),
         ),
       ),
-    ),
-  );
-}
+    ));
+  }
 }
