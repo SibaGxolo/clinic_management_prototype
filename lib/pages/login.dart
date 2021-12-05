@@ -133,13 +133,19 @@ class _LoginState extends State<Login> {
                                           _passwordController.text.trim())
                                       .then((user) {
                                     progress.dismiss();
-
-                                    Navigator.push(
-                                        context,
-                                        //Login button redirects the app to the landing page
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Home()));
+                                    if (user.toLowerCase().contains('failed')) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  'Email or password is incorrect')));
+                                    } else {
+                                      Navigator.push(
+                                          context,
+                                          //Login button redirects the app to the landing page
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Home()));
+                                    }
                                   });
                                 }
                               }),
