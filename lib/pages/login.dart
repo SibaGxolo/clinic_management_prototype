@@ -5,6 +5,8 @@ import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
@@ -23,151 +25,156 @@ class _LoginState extends State<Login> {
 
   bool _isBusyDialogVisible = false;
 
+  final GlobalKey _safeArea = GlobalKey();
+
   @override
   void initState() {
     super.initState();
-    Firebase.initializeApp().then((value) {
-      _auth = FirebaseAuth.instance;
-    });
+    Firebase.initializeApp();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: const Center(
-            child: Text('Login'),
+    return ProgressHUD(
+      child: SafeArea(
+        key: _safeArea,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            title: const Center(
+              child: Text('Login'),
+            ),
+            automaticallyImplyLeading: false,
           ),
-          automaticallyImplyLeading: false,
-        ),
-        body: SingleChildScrollView(
-          child: Form(
-            key: _key,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: (MediaQuery.of(context).size.height * 7.5) / 100,
-                ),
-                Text(
-                  'Clinic Management',
-                  style: GoogleFonts.lato(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 35,
+          body: SingleChildScrollView(
+            child: Form(
+              key: _key,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height * 7.5) / 100,
                   ),
-                ),
-                SizedBox(
-                  height: (MediaQuery.of(context).size.height * 7.5) / 100,
-                ),
-                // ignore: prefer_const_constructors
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: TextFormField(
-                    controller: _emailController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'username cannot be empty';
-                      } else {
-                        return null;
-                      }
-                    },
-                    keyboardType: TextInputType.text,
-                    // ignore: prefer_const_constructors
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      hintText: 'enter email here',
+                  Text(
+                    'Clinic Management',
+                    style: GoogleFonts.lato(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 35,
                     ),
                   ),
-                ),
-
-                // ignore: prefer_const_constructors
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: TextFormField(
-                    controller: _passwordController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Password cannot be empty';
-                      } else {
-                        return null;
-                      }
-                    },
-                    obscureText: true,
-                    keyboardType: TextInputType.text,
-                    // ignore: prefer_const_constructors
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      hintText: 'enter password here',
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height * 7.5) / 100,
+                  ),
+                  // ignore: prefer_const_constructors
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextFormField(
+                      controller: _emailController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'username cannot be empty';
+                        } else {
+                          return null;
+                        }
+                      },
+                      keyboardType: TextInputType.text,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        hintText: 'enter email here',
+                      ),
                     ),
                   ),
-                ),
-                ButtonBar(
-                  alignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      children: [
-                        Button(
-                            buttontext: 'Login',
-                            onPressed: () {
-                              // final progress = ProgressHUD.of(context);
-                              //
-                              // setState(() {
-                              //   progress!.show();
-                              // });
 
-                              AuthService(_auth)
-                                  .login(_emailController.text.trim(),
-                                      _passwordController.text.trim())
-                                  .then((user) {
-                                // setState(() {
-                                //   progress!.dismiss();
-                                // });
+                  // ignore: prefer_const_constructors
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Password cannot be empty';
+                        } else {
+                          return null;
+                        }
+                      },
+                      obscureText: true,
+                      keyboardType: TextInputType.text,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        hintText: 'enter password here',
+                      ),
+                    ),
+                  ),
+                  ButtonBar(
+                    alignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        children: [
+                          Button(
+                              buttontext: 'Login',
+                              onPressed: () async {
+                                SystemChannels.textInput
+                                    .invokeMethod('TextInput.hide');
 
+                                if (!_key.currentState!.validate()) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text(
+                                              'Enter all fields to proceed')));
+                                } else {
+                                  final progress =
+                                      ProgressHUD.of(_safeArea.currentContext!);
+                                  progress!.show();
+
+                                  AuthService()
+                                      .login(_emailController.text.trim(),
+                                          _passwordController.text.trim())
+                                      .then((user) {
+                                    progress.dismiss();
+
+                                    Navigator.push(
+                                        context,
+                                        //Login button redirects the app to the landing page
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Home()));
+                                  });
+                                }
+                              }),
+                          SizedBox(
+                            height: (MediaQuery.of(context).size.height * 2.5) /
+                                100,
+                          ),
+                          Button(
+                              buttontext: 'Register',
+                              onPressed: () {
                                 Navigator.push(
                                     context,
-                                    //Login button redirects the app to the landing page
                                     MaterialPageRoute(
-                                        builder: (context) => const Home()));
-                              });
-                              // if (_key.currentState!.validate()) {
-                              // } else {}
-                              // {
-                              //
-                              //
-                              // }
-                            }),
-                        SizedBox(
-                          height:
-                              (MediaQuery.of(context).size.height * 2.5) / 100,
-                        ),
-                        Button(
-                            buttontext: 'Register',
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Register()));
-                            }),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: (MediaQuery.of(context).size.height * 18) / 100,
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "Forgot your password",
-                      style: TextStyle(fontSize: 20.0),
+                                        builder: (context) =>
+                                            const Register()));
+                              }),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height * 18) / 100,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Text(
+                        "Forgot your password",
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

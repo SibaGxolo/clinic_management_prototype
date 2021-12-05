@@ -134,25 +134,3 @@ class _UserChoiceState extends State<UserChoice> {
     );
   }
 }
-
-// class UserChoice extends StatelessWidget {
-//   final GestureTapCallback onPressed;
-//   final String textbutton;
-//
-//   const UserChoice({
-//     Key? key,
-//     required this.onPressed,
-//     required this.textbutton,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextButton(
-//       onPressed: onPressed,
-//       child: Text(
-//         textbutton,
-//         style: TextStyle(fontSize: 25),
-//       ),
-//     );
-//   }
-// }
