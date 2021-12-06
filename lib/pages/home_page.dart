@@ -72,30 +72,3 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     );
   }
 }
-
-//User choice button methods with variables
-// class UserChoice extends StatelessWidget {
-//   final GestureTapCallback onPressed;
-//   final String textbutton;
-//
-//   const UserChoice({
-//     Key? key,
-//     required this.onPressed,
-//     required this.textbutton,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return TextButton(
-//       onPressed: onPressed,
-//       child: Text(
-//         textbutton,
-//         style: GoogleFonts.lato(
-//           color: Colors.blue,
-//           fontWeight: FontWeight.w700,
-//           fontSize: 15,
-//         ),
-//       ),
-//     );
-//   }
-// }

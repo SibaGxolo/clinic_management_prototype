@@ -1,5 +1,5 @@
+import 'package:clinic_management_prototype/preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class IconProfile extends StatefulWidget {
   const IconProfile({Key? key}) : super(key: key);
@@ -16,10 +16,15 @@ class _IconProfileState extends State<IconProfile> {
         appBar: AppBar(
           title: const Center(child: Text('Profile')),
         ),
-        body: const Center(
-          child: SpinKitFadingCircle(
-            color: Colors.blue,
-            size: 50,
+        body: Center(
+          child: Container(
+            child: Column(
+              children: [
+                Text('${Preferences.user!.user!.displayName}'),
+                Text('${Preferences.user!.user!.email}'),
+                Text('${Preferences.user!.user!.uid}'),
+              ],
+            ),
           ),
         ),
       ),

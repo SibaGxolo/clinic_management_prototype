@@ -248,9 +248,16 @@ class _DriverState extends State<Driver> {
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: _emailcontroller,
-                      validator: Validator.validateField,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'field cant be empty';
+                        }
+                        if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                          return 'Enter a valid email address';
+                        }
+                      },
                       obscureText: false,
-                      keyboardType: TextInputType.streetAddress,
+                      keyboardType: TextInputType.datetime,
                       // ignore: prefer_const_constructors
                       decoration: InputDecoration(
                         labelText: 'Email',
@@ -284,9 +291,19 @@ class _DriverState extends State<Driver> {
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: _passwordcontroller,
-                      validator: Validator.validatePassword,
+                      validator: (value) {
+                        if (value!.trim().isEmpty) {
+                          return 'field cannot be empty';
+                        } else if (!RegExp(
+                                r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(value)) {
+                          return 'Enter a strong password';
+                        } else {
+                          return null;
+                        }
+                      },
                       obscureText: false,
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.text,
                       // ignore: prefer_const_constructors
                       decoration: InputDecoration(
                         labelText: 'Enter your password',

@@ -1,9 +1,9 @@
 import 'package:clinic_management_prototype/pages/complete.dart';
-import 'package:clinic_management_prototype/pages/login.dart';
+
 import 'package:clinic_management_prototype/pages/nurse_register.dart';
 import 'package:clinic_management_prototype/preferences.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
-import 'package:clinic_management_prototype/validators.dart';
+
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -180,12 +180,19 @@ class _DistributionHallState extends State<DistributionHall> {
                   padding: const EdgeInsets.all(10),
                   child: TextFormField(
                     controller: _centermanageremailcontroller,
-                    validator: Validator.validateField,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'field cant be empty';
+                      }
+                      if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                        return 'Enter a valid email address';
+                      }
+                    },
                     obscureText: false,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.datetime,
                     // ignore: prefer_const_constructors
                     decoration: InputDecoration(
-                      labelText: 'Center manager email',
+                      labelText: 'Email',
                       hintText: 'enter center manger email here',
                     ),
                   ),

@@ -27,9 +27,9 @@ class _CompletepageState extends State<Completepage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        const Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Home())));
+            context, MaterialPageRoute(builder: (context) => const Home())));
   }
 
   @override
