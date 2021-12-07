@@ -95,7 +95,14 @@ class _MedicalEmergancyState extends State<MedicalEmergancy> {
                               builder: (context) =>
                                   const Home())); //testing home page
                     }),
-                Button(buttontext: 'Confirm', onPressed: () {}),
+                Button(
+                    buttontext: 'Confirm',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Home()));
+                    }),
               ],
             ),
           ],
