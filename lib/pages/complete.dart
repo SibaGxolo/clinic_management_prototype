@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:clinic_management_prototype/pages/home_page.dart';
+import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class Complete extends StatelessWidget {
@@ -29,7 +29,7 @@ class _CompletepageState extends State<Completepage> {
     Timer(
         const Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Home())));
+            context, MaterialPageRoute(builder: (context) => const Login())));
   }
 
   @override
