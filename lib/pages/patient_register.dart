@@ -60,7 +60,9 @@ class _PatientState extends State<Patient> {
     setState(() {
       _chosenImage = pickedImageFile;
     });
+    
   }
+
 
   void _remove() {
     setState(() {
