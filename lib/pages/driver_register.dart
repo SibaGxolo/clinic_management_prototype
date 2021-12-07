@@ -2,11 +2,10 @@ import 'dart:io';
 import 'package:clinic_management_prototype/pages/complete.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
-import 'package:clinic_management_prototype/validators.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/camera.dart';
 import 'package:clinic_management_prototype/widgets/inkwell.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -62,10 +61,6 @@ class _DriverState extends State<Driver> {
       _chosenImage = null;
     });
   }
-
-  late FirebaseAuth _auth;
-
-  bool _isBusyDialogVisible = false;
 
   @override
   void initState() {

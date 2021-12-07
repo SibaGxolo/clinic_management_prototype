@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:clinic_management_prototype/pages/complete.dart';
-import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/proxy_register.dart';
 import 'package:clinic_management_prototype/pages/register.dart';
@@ -15,8 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../validators.dart';
-
 class Patient extends StatefulWidget {
   const Patient({Key? key}) : super(key: key);
 
@@ -26,7 +23,7 @@ class Patient extends StatefulWidget {
 
 class _PatientState extends State<Patient> {
   final GlobalKey<FormState> _key =
-      new GlobalKey<FormState>(debugLabel: '_RegisterScreenState');
+      GlobalKey<FormState>(debugLabel: '_RegisterScreenState');
 
   final GlobalKey _safeArea = GlobalKey();
 
@@ -70,10 +67,6 @@ class _PatientState extends State<Patient> {
       _chosenImage = null;
     });
   }
-
-  late FirebaseAuth _auth;
-
-  bool _isBusyDialogVisible = false;
 
   @override
   void initState() {

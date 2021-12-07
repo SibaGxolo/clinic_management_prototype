@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:clinic_management_prototype/pages/complete.dart';
-import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/patient_register.dart';
 import 'package:clinic_management_prototype/preferences.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
@@ -10,6 +9,8 @@ import 'package:clinic_management_prototype/widgets/inkwell.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Proxy extends StatefulWidget {
@@ -21,6 +22,7 @@ class Proxy extends StatefulWidget {
 
 class _ProxyState extends State<Proxy> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  final GlobalKey _safeArea = GlobalKey();
 
   final TextEditingController _namecontroller = TextEditingController();
   final TextEditingController _surnamecontroller = TextEditingController();
@@ -28,7 +30,6 @@ class _ProxyState extends State<Proxy> {
   final TextEditingController _cardcontroller = TextEditingController();
   final TextEditingController _collectioncontroller = TextEditingController();
   final TextEditingController _cellphonecontroller = TextEditingController();
-  final TextEditingController _emailcontroller = TextEditingController();
 
   dynamic _chosenImage;
 
@@ -60,8 +61,6 @@ class _ProxyState extends State<Proxy> {
   }
 
   late FirebaseAuth _auth;
-
-  bool _isBusyDialogVisible = false;
 
   // late String cardNumber;
 
@@ -290,6 +289,8 @@ class _ProxyState extends State<Proxy> {
                     Button(
                         buttontext: 'Proceed',
                         onPressed: () async {
+                          SystemChannels.textInput
+                              .invokeMethod('TextInput.hide');
                           if (!_key.currentState!.validate()) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -312,14 +313,13 @@ class _ProxyState extends State<Proxy> {
                                   _cellphonecontroller.text.trim(),
                               'userType': 'patient',
                             });
+                            AuthService().signOut().then((value) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Complete()));
+                            });
                           }
-
-                          AuthService().signOut().then((value) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Complete()));
-                          });
                         }),
                   ],
                 ),

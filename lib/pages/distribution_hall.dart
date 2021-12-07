@@ -34,8 +34,6 @@ class _DistributionHallState extends State<DistributionHall> {
 
   late FirebaseAuth _auth;
 
-  bool _isBusyDialogVisible = false;
-
   @override
   void initState() {
     super.initState();
@@ -240,14 +238,13 @@ class _DistributionHallState extends State<DistributionHall> {
                                   _centermanageremailcontroller.text.trim(),
                               'userType': 'nurse',
                             });
+                            AuthService().signOut().then((value) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const Complete()));
+                            });
                           }
-
-                          AuthService().signOut().then((value) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Complete()));
-                          });
                         }),
                   ],
                 ),

@@ -21,10 +21,6 @@ class _LoginState extends State<Login> {
   final TextEditingController _passwordController = TextEditingController();
   final _key = GlobalKey<FormState>();
 
-  late FirebaseAuth _auth;
-
-  bool _isBusyDialogVisible = false;
-
   final GlobalKey _safeArea = GlobalKey();
 
   @override

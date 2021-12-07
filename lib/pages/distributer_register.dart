@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:clinic_management_prototype/pages/complete.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
-import 'package:clinic_management_prototype/validators.dart';
+
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/camera.dart';
 import 'package:clinic_management_prototype/widgets/inkwell.dart';
@@ -63,10 +63,6 @@ class _DistributorState extends State<Distributor> {
       _chosenImage = null;
     });
   }
-
-  late FirebaseAuth _auth;
-
-  bool _isBusyDialogVisible = false;
 
   @override
   void initState() {

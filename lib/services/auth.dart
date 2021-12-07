@@ -32,9 +32,9 @@ class AuthService {
     user!.updateDisplayName(name);
 
     Preferences.user = userCredential;
-    Preferences.uid = user!.uid;
+    Preferences.uid = user.uid;
 
-    await FirebaseFirestore.instance.collection("users").doc(user!.uid).set({
+    await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
       'uid': user.uid,
       'email': email,
       'name': name,

@@ -1,7 +1,8 @@
+// ignore_for_file: file_names, unnecessary_this
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
-
   late String uid;
   late String? name;
   late String? surname;
@@ -16,16 +17,20 @@ class UserModel {
   late Map<String, dynamic> education;
   late Map<String, dynamic> experience;
 
-  UserModel({required this.uid,required this.name,required this.email,required this.idNumber});
+  UserModel(
+      {required this.uid,
+      required this.name,
+      required this.email,
+      required this.idNumber});
 
-  UserModel.fromMap(Map<String, dynamic>? data){
+  UserModel.fromMap(Map<String, dynamic>? data) {
     this.uid = data!['uid'];
     this.name = data['name'];
     this.surname = data['surname'];
     this.idNumber = data['idNumber'];
     this.email = data['email'];
     this.collectionDay = data['collectionDay'];
-    this.cardNumber = data!['cardNumber'];
+    this.cardNumber = data['cardNumber'];
     this.password = data['password'];
   }
 
@@ -33,7 +38,7 @@ class UserModel {
     return {
       'uid': uid,
       'name': name,
-      'surname' : surname,
+      'surname': surname,
       'idNumber': idNumber,
       'collectionDay': collectionDay,
       'email': email,
@@ -44,11 +49,8 @@ class UserModel {
 }
 
 Future<UserModel> getUserDetails(String uid) async {
-
-  DocumentSnapshot snapshot = await FirebaseFirestore.instance
-      .collection('Users')
-      .doc(uid)
-      .get();
+  DocumentSnapshot snapshot =
+      await FirebaseFirestore.instance.collection('Users').doc(uid).get();
 
   UserModel user = UserModel.fromMap(snapshot.data() as Map<String, dynamic>);
 

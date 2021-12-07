@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'package:clinic_management_prototype/pages/complete.dart';
 import 'package:clinic_management_prototype/pages/distribution_hall.dart';
-import 'package:clinic_management_prototype/pages/home_page.dart';
 import 'package:clinic_management_prototype/pages/login.dart';
 import 'package:clinic_management_prototype/pages/register.dart';
 import 'package:clinic_management_prototype/services/auth.dart';
-import 'package:clinic_management_prototype/validators.dart';
 import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:clinic_management_prototype/widgets/camera.dart';
 import 'package:clinic_management_prototype/widgets/inkwell.dart';
@@ -24,7 +22,7 @@ class Nurse extends StatefulWidget {
 }
 
 class _NurseState extends State<Nurse> {
-  final _key = new GlobalKey<FormState>(debugLabel: '_RegisterScreenState');
+  final _key = GlobalKey<FormState>(debugLabel: '_RegisterScreenState');
 
   final GlobalKey _safeArea = GlobalKey();
 
@@ -65,9 +63,6 @@ class _NurseState extends State<Nurse> {
       _chosenImage = null;
     });
   }
-
-  late FirebaseAuth _auth;
-  bool _isBusyDialogVisible = false;
 
   @override
   void initState() {
