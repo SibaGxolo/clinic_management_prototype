@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+//This class is for the bottom notification navigation, to display either the patients who came for check-ups or medical emergency.
 
 class IconNotifications extends StatefulWidget {
   const IconNotifications({Key? key}) : super(key: key);

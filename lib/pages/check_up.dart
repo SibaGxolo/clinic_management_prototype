@@ -43,6 +43,9 @@ class _CheckUpState extends State<CheckUp> {
             SizedBox(
               height: (MediaQuery.of(context).size.height * 12) / 100,
             ),
+
+            //Inkwell allows the option of onTap, so that anything you click on can be clickable
+            //Thereon, the showDatePicker is used to display the dates to be chose by the user.
             InkWell(
               onTap: () {
                 showDatePicker(
@@ -87,6 +90,10 @@ class _CheckUpState extends State<CheckUp> {
                 ),
               ),
             ),
+
+            //The button bar is then used fo the two options, 'Cancel' or 'Confirm', which will then lead you to the designated pages through the...
+            //Navigator.push and the MaterialPageRoute, of which the route is also stipulated.
+
             SizedBox(
               height: (MediaQuery.of(context).size.height * 19) / 100,
             ),

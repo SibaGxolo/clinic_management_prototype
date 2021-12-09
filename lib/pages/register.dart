@@ -9,6 +9,7 @@ import 'package:clinic_management_prototype/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//This class is responsible for all the entities that need to register. It also grants access to the dropdown list or all the aforementioned entities.
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -71,7 +72,7 @@ class _RegisterState extends State<Register> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.blue, width: 4)),
-                child: DropdownButtonHideUnderline(
+                child: DropdownButtonHideUnderline(//Allows the option of displaying the entities in a dropdown list form.
                   child: DropdownButton<String>(
                     value: value,
                     iconSize: 30,

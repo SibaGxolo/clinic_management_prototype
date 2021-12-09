@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//This class is solely for login purposes. It is in line with the firebase authentication, to capture the relevant validations
+//and to capture the information entered into the firebase
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 

@@ -24,6 +24,8 @@ class _ProxyState extends State<Proxy> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final GlobalKey _safeArea = GlobalKey();
 
+  
+
   final TextEditingController _namecontroller = TextEditingController();
   final TextEditingController _surnamecontroller = TextEditingController();
   final TextEditingController _idcontroller = TextEditingController();
@@ -62,24 +64,17 @@ class _ProxyState extends State<Proxy> {
 
   late FirebaseAuth _auth;
 
-  // late String cardNumber;
+  
 
   @override
   void initState() {
     super.initState();
 
     _auth = FirebaseAuth.instance;
-
-    // getUserDetails(Preferences.uid!).then((user) {
-    //   cardNumber = user.cardNumber;
-    //  });
   }
 
   @override
   Widget build(BuildContext context) {
-    // getUserDetails(Preferences.uid!).then((user) {
-    //  cardNumber = user.cardNumber;
-    // });
 
     return SafeArea(
       child: Scaffold(
@@ -98,6 +93,8 @@ class _ProxyState extends State<Proxy> {
                 SizedBox(
                   height: (MediaQuery.of(context).size.height * 2.5) / 100,
                 ),
+                //The following  code (up until the closing of the stack) is used for the camera for uploading the ID photo for authentication, with the option of either taking a picture,
+                //getting the picture from the gallery or ultimately removing it
                 Stack(
                   children: [
                     Container(
@@ -134,6 +131,7 @@ class _ProxyState extends State<Proxy> {
                                   content: SingleChildScrollView(
                                     child: Column(
                                       children: [
+                                        //InkWell allows the command of taking the picture, getting it from the gallery or removing it.
                                         InkWeLL(
                                           icon: Icons.camera,
                                           text: 'Camera',
@@ -159,6 +157,7 @@ class _ProxyState extends State<Proxy> {
                     )
                   ],
                 ),
+                //Below are the TextFormFields with the relevant validations.
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: TextFormField(

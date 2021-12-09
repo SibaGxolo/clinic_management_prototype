@@ -21,7 +21,9 @@ class Distributor extends StatefulWidget {
 class _DistributorState extends State<Distributor> {
   final _key = GlobalKey<FormState>(debugLabel: '_RegisterScreenState');
 
-  final GlobalKey _safeArea = GlobalKey();
+  final GlobalKey _safeArea = GlobalKey();//
+
+  //The TextEditingControllers below serve the purpose of holding the information of each field, to also allow the validation take place.
 
   final TextEditingController _namecontroller = TextEditingController();
   final TextEditingController _surnamecontroller = TextEditingController();
@@ -97,6 +99,8 @@ class _DistributorState extends State<Distributor> {
                   SizedBox(
                     height: (MediaQuery.of(context).size.height * 2.5) / 100,
                   ),
+                  //The following code is used for the camera for uploading the ID photo for authentication, with the option of either taking a picture,
+                  //getting the picture from the gallery or ultimately removing it
                   Stack(
                     children: [
                       Container(

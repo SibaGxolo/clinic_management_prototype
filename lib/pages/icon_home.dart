@@ -4,7 +4,7 @@ import 'package:clinic_management_prototype/pages/medical_emergancy.dart';
 import 'package:clinic_management_prototype/pages/medication_delivery.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+//This class is for the bottom home navigation, to browse through the stipulated navigation bar.
 class IconHome extends StatelessWidget {
   const IconHome({Key? key}) : super(key: key);
 

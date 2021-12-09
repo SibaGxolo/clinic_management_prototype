@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//This code is for the bottom navigation, specifically the profile page, where the user can have the option to logout from the application.
+
 class IconProfile extends StatefulWidget {
   const IconProfile({Key? key}) : super(key: key);
 

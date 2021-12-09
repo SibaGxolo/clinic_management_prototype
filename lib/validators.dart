@@ -1,3 +1,4 @@
+//This class serves the purpose of allowing validation in respective aspects
 class Validator {
   static late String password;
   static String? validatePassword(String? value) {

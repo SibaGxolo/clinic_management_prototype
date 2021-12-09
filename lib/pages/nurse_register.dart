@@ -99,6 +99,8 @@ class _NurseState extends State<Nurse> {
                   SizedBox(
                     height: (MediaQuery.of(context).size.height * 2.5) / 100,
                   ),
+                  //The following code (up until the closing of the stack) is used for the camera for uploading the ID photo for authentication, with the option of either taking a picture,
+                  //getting the picture from the gallery or ultimately removing it
                   Stack(
                     children: [
                       Container(
